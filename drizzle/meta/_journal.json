@@ -1,0 +1,20 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1725460562525,
+      "tag": "0000_glossy_zaladane",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1725461429857,
+      "tag": "0001_lyrical_cloak",
+      "breakpoints": true
+    }
+  ]
+}
