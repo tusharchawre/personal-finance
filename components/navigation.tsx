@@ -16,7 +16,7 @@ import { Menu } from "lucide-react";
 
 const routes = [
     {
-        href: "/dashboard",
+        href: "/",
         label: "Overview"
     },
     {
@@ -28,7 +28,7 @@ const routes = [
         label: "Accounts"
     },
     {
-        href: "/Categories",
+        href: "/categories",
         label: "Categories"
     },
 
