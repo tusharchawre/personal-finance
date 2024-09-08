@@ -4,10 +4,10 @@ import { useMutation , useQueryClient  } from "@tanstack/react-query";
 import {client} from "@/lib/hono"
 import { toast } from "sonner";
 
-type ResponseType = InferResponseType<typeof client.api.categories[":id"]["$patch"]>;
-type RequestType = InferRequestType<typeof client.api.categories[":id"]["$patch"]>["json"]
+type ResponseType = InferResponseType<typeof client.api.transactions["bulk-delete"]["$post"]>;
+type RequestType = InferRequestType<typeof client.api.transactions["bulk-delete"]["$post"]>["json"]
 
-export const useEditCategory = (id? : string) =>{
+export const useBulkDeleteTransactions = () =>{
     const queryClient = useQueryClient();
 
     const mutation = useMutation<
@@ -16,22 +16,17 @@ export const useEditCategory = (id? : string) =>{
     RequestType
     >({
         mutationFn: async (json)=>{
-            const response  =  await  client.api.categories[":id"]["$patch"]({
-                json,
-                param : {id}
+            const response  =  await  client.api.transactions["bulk-delete"]["$post"]({
+                json
             });
             return await response.json();
         },
         onSuccess: () =>{
-            toast.success("Category Updated")
-            queryClient.invalidateQueries({queryKey: ["category", {id}]})
-
-            queryClient.invalidateQueries({queryKey: ["categories"]})
+            toast.success("Transaction Deleted")
             queryClient.invalidateQueries({queryKey: ["transactions"]})
         },
         onError: () =>{
-            toast.error("Failed to Edit category")
-
+            toast.error("Failed to Delete transactions")
         }
     })
 
