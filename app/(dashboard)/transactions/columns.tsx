@@ -141,7 +141,7 @@ export const columns: ColumnDef<RespnseType>[] = [
       cell: ({ row }) => {
 
         return (
-          <AccountsColumns  account={row.original.account} accountId={row.original.accountsId} />
+          <AccountsColumns  account={row.original.account} accountId={row.original.accountId}/>
         )
       },
   },
